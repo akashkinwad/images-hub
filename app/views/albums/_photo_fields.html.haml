@@ -1,0 +1,11 @@
+.nested-fields
+  = f.hidden_field :user_id, value: @user.id
+  .field
+    = f.label :image
+    %br
+    = f.file_field :image
+  .field
+    = f.label :tagline
+    = f.text_field :tagline
+  %br/
+  = link_to_remove_association "Remove Image", f, class: 'btn btn-danger'

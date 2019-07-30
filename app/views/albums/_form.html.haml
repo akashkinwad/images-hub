@@ -1,0 +1,22 @@
+.container-fluid
+  = form_for [@user, @album] do |f|
+    - if @album.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@album.errors.count, "error")} prohibited this album from being saved:"
+        %ul
+          - @album.errors.full_messages.each do |message|
+            %li= message
+
+    .field
+      = f.label :title
+      = f.text_field :title
+
+      %h3 Images
+      = f.fields_for :photos do |image|
+        = render 'photo_fields', f: image
+      %br/
+      .links
+        = link_to_add_association 'Add image', f, :photos, class: 'btn btn-success'
+
+    .actions
+      = f.submit 'Save', class: 'btn btn-primary'

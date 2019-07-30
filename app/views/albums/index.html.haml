@@ -1,0 +1,22 @@
+.container-fluid
+  %h2 My Albums
+  %br
+  = link_to 'New Album', new_user_album_path(@user), class: 'btn btn-primary'
+
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Title
+        %th Images
+        %th Actions
+    %tbody
+      - @albums.each do |album|
+        %tr
+          %td
+            = album.title
+          %td
+            = album.photos.count
+          %td
+            = link_to 'Show', user_album_path(@user, album), class: 'btn btn-info'
+            = link_to 'Edit', edit_user_album_path(@user, album), class: 'btn btn-warning'
+            = link_to 'Destroy', user_album_path(@user, album), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

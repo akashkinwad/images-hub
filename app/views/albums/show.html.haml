@@ -1,0 +1,21 @@
+.container-fluid
+  %h3
+    = "Album : #{@album.title}"
+  %h3
+    = "Author : #{@album.user.email}"
+  %br/
+  - @photos.in_groups_of(3, false) do |row|
+    .row
+      - for photo in row
+        - if photo.image.attached?
+          .col-lg-4.col-md-4.col-xs-12.thumb
+            %strong Tagline:
+            %strong
+              = photo.tagline
+            %br/
+            %a.thumbnail
+              = image_tag photo.image.variant(resize: "400x300"), class: 'img-responsive'
+
+  = link_to 'Edit', edit_user_album_path(@user, @album), class: 'btn btn-primary'
+  \|
+  = link_to 'Back', user_albums_path(@user), class: 'btn btn-warning'
