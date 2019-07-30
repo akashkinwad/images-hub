@@ -1,4 +1,49 @@
-Images Gallery
+h2. Images Gallery
+
+========================================================
 
 Rails Version - 5.2
 Ruby Version - 2.5.3
+
+========================================================
+
+h2. Setup Steps
+
+h4. Clone
+
+You can clone the GitHub repo.
+
+To clone:
+
+<pre>
+$ git@github.com:akashkinwad/images-hub.git
+</pre>
+
+h4. Database Setup
+
+Go to images-hub folder and Run
+
+<pre>
+$ rake db:setup
+</pre>
+
+run rake db:setup
+
+This will create Postgres database and runs migration and also runs the seed data.
+
+
+h4. Run Application
+
+<pre>
+$ rails server
+</pre>
+
+h4. Run Application
+
+Open Browser and paste below link
+
+<pre>
+http://localhot:3000/
+</pre>
+
+========================================================
