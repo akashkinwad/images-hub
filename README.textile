@@ -15,18 +15,16 @@ To clone:
 $ git@github.com:akashkinwad/images-hub.git
 </pre>
 
-h4. Database Setup
+h4. Gem Setup & Database Setup
 
 Go to images-hub folder and Run
 
 <pre>
+$ bundle install
 $ rake db:setup
 </pre>
 
-run rake db:setup
-
 This will create Postgres database and runs migration and also runs the seed data.
-
 
 h4. Run Application
 
