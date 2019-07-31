@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :demos
   root to: 'visitors#index'
   devise_for :users
   resources :visitors, only: [:index, :show] do
