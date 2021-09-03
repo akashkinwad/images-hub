@@ -37,6 +37,13 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update(album_params)
+
+        job = MyJob.set(wait: 1.minutes).perform_later('dummy@example.com')
+        jid = job.provider_job_id # getting provider_job_id here
+        puts "----------------------------------------------------"
+        puts "Provider job id ======provider_job_id=====>> #{jid}"
+        puts "----------------------------------------------------"
+
         format.html { redirect_to user_albums_path(@user), notice: 'Album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
